@@ -1,43 +1,34 @@
-\# QA Bug Hunt – Login com Playwright (Python)
+# QA Bug Hunt – Login com Playwright (Python)
 
-Projeto focado na identificação de bugs em fluxos críticos de autenticação.
+Projeto focado na identificação de comportamentos incorretos em fluxos críticos de autenticação.
 
-\## Objetivo
+## Objetivo
 
-Validar comportamentos incorretos no login e demonstrar a importância de testes negativos.
+Validar cenários negativos no login, garantindo que o sistema trate corretamente entradas inválidas e forneça feedback adequado ao usuário.
 
-\## Cenários testados
+## Cenários testados
 
-\- Login sem preencher campos
+- Login sem preenchimento de usuário e senha
+- Validação da exibição de mensagens de erro
+- Comportamento da interface diante de entradas inválidas
 
-\- Validação de mensagens de erro
+## Possíveis impactos (se não testado)
 
-\- Comportamento da interface
+- Usuários impedidos de acessar o sistema
+- Falta de feedback, gerando confusão
+- Aumento de chamados no suporte
+- Impacto na experiência do usuário e credibilidade do produto
 
-\## Possíveis impactos (se não testado)
+## Tecnologias
 
-\- Usuários não conseguem acessar o sistema
+- Python
+- Playwright
+- Pytest
 
-\- Falta de feedback causa confusão
-
-\- Aumento de chamados no suporte
-
-\- Perda de credibilidade do produto
-
-\## Tecnologias
-
-\- Python
-
-\- Playwright
-
-\## Como executar
+## Como executar
 
 ```bash
-
 pip install -r requirements.txt
-
-playwright install
-
-python tests/test\_login\_bug.py
-
+python -m playwright install
+python -m pytest tests/test_login_bug.py --headed --slowmo=500
 ```
